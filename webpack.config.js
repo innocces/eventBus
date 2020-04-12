@@ -2,7 +2,7 @@
  * @Date: 2020-04-11 20:10:36
  * @Author: innocces
  * @LastEditors: innocces
- * @LastEditTime: 2020-04-11 23:15:00
+ * @LastEditTime: 2020-04-12 18:11:14
  * @FilePath: /eventBus/webpack.config.js
  * @Description: webpack config
  */
@@ -16,10 +16,8 @@ const Webpack = require('webpack')
 
 module.exports = {
   entry: {
-    react: './src/react.entry.js',
-    vue: './src/vue.entry.js',
-    // vueCore: 'vue',
-    // reactCore: [ 'react', 'react-dom' ]
+    react: './src/react.entry.jsx',
+    vue: './src/vue.entry.js'
   },
   output: {
     filename: '[name].bundle.[hash].js',
@@ -80,11 +78,24 @@ module.exports = {
         ]
       },
       {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            '@babel/preset-react'
+          ]
+        }
+      },
+      {
         test: /\.m?js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
           cacheDirectory: true, // speed up
+          plugins: [
+            'transform-vue-jsx'
+          ]
         }
       },
       {
