@@ -2,32 +2,40 @@
  * @Date: 2020-04-11 21:18:44
  * @Author: innocces
  * @LastEditors: innocces
- * @LastEditTime: 2020-04-12 18:16:44
+ * @LastEditTime: 2020-04-12 20:05:11
  * @FilePath: /eventBus/src/vue/app.vue
  * @Description: app vue
  -->
 <template>
   <div class='app'>
-    vue content
-    <Icon>
-      dsjdsndsjdjshdjhsd
-    </Icon>
+    <Comment 
+      :comment='info'
+      @action='commentAction'
+    />
   </div>
 </template>
 
 <script>
-import Icon from './component/Icon/vue.index'
-console.log(Icon)
+import Comment from '../component/Comment/comment.vue'
+
+import {
+  commentInfo
+} from '../data/comment'
 
 export default {
   name: 'App',
   data() {
     return {
-
+      info: commentInfo('vue')
     }
   },
   components: {
-    Icon
+    Comment
+  },
+  methods: {
+    commentAction(type) {
+      alert(type)
+    }
   }
 }
 </script>

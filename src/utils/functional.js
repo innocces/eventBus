@@ -2,7 +2,7 @@
  * @Date: 2020-04-12 15:26:18
  * @Author: innocces
  * @LastEditors: innocces
- * @LastEditTime: 2020-04-12 18:15:31
+ * @LastEditTime: 2020-04-12 18:20:33
  * @FilePath: /eventBus/src/utils/functional.js
  * @Description: transform funtional for vue
  */
